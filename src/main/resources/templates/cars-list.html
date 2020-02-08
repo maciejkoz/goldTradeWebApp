@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Car List</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}" type="text/css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div id="title">
+            <h1>Car List</h1>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Current User</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Registration Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="result" data-th-each="car : ${carsList}">
+                <td th:text="${car.id}"></td>
+                <td th:text="${car.getEmployees().getFirstName() + ' ' + car.getEmployees().getLastName()}"></td>
+                <td th:text="${car.brand}"></td>
+                <td th:text="${car.model}"></td>
+                <td th:text="${car.registrationDate}"></td>
+
+                <td class="action-td">
+                    <form method="post" class="padding5px" th:action="#" th:action="@{/car/delete}">
+                        <input type="hidden" th:name="car_id" th:value="${car.id}">
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                    </form>
+                    <form method="post" class="padding5px" action="#" th:action="@{/car/edit}">
+                        <input type="hidden" th:name="car_id" th:value="${car.id}">
+                        <input type="submit" class="btn btn-warning" value="Edit">
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

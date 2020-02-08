@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Menu</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
+</head>
+<body bgcolor="#99CC66">
+<div class="container">
+    <h2>Employees </h2>
+    <br><br>
+
+    <form>
+        <div class="form">
+            <a href="/allEmployees" class="form-control">Employees List</a><br>
+            <a href="/car/seeAll" class="form-control">Cars List</a><br>
+            <a href="/printer/seeAll" class="form-control">Printers List</a><br>
+            <a href="/addEmployee" class="form-control">Add Employee</a><br>
+            <a href="/car/getForm" class="form-control">Add Car</a> <br>
+            <a href="/printer/getForm" class="form-control">Add Printer </a>
+        </div>
+
+</form>
+
+</div>
+</body>
+</html>

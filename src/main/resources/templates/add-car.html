@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Car Form</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" th:href="@{/css/bootstrap.css}" type="text/css">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/css/main.css}" type="text/css">
+</head>
+<body>
+<hr>
+<div class="container">
+    <h2>Car Form</h2>
+    <div class="form-group">
+        <form action="#" class="form-group" th:action="@{/car/save}" th:object="${car}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <label>Car User
+                <select class="form-control" name="item.id" required>
+                    <option value="default">Choose employee</option>
+                    <option th:each="item : ${employeesList}"
+                            th:value="${item.id}"
+                            th:text="${item.firstName} + ' ' + ${item.lastName}"></option>
+                </select>
+            </label><br>
+            <label>Brand <input type="text" class="form-control" th:field="*{brand}" placeholder="Brand"
+                                required></label><br>
+            <label>Model <input type="text" class="form-control" th:field="*{model}" placeholder="Model" required></label><br>
+            <label>Registration Date <input type="date" class="form-control" id="date" name="date" required></label><br>
+            <input type="submit" class="btn btn-danger" value="Save">
+        </form>
+        <hr>
+    </div>
+</div>
+
+</body>
+</html>
